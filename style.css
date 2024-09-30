@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.pizza {
+    position: relative;
+    margin: 20px;
+}
+
+#pizzaBase {
+    width: 200px;
+}
+
+.toppings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+}
+
+.ingredient {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.ingredient:hover {
+    background-color: #f0f0f0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
