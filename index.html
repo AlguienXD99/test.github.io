@@ -11,8 +11,19 @@
         <h1>¡Haz tu propia pizza!</h1>
         <div id="pizza" class="pizza">
             <img src="https://via.placeholder.com/200x200.png?text=Pizza" alt="Pizza" id="pizzaBase">
+            <div id="toppings" class="toppings"></div>
         </div>
         <div class="ingredients">
             <h2>Ingredientes</h2>
             <div class="ingredient" data-ingredient="Queso" onclick="addIngredient(this)">🧀 Queso</div>
-            <div class="ingredient" data-ingredient="Pepperoni" onclick="addIngredient(this)">
+            <div class="ingredient" data-ingredient="Pepperoni" onclick="addIngredient(this)">🍕 Pepperoni</div>
+            <div class="ingredient" data-ingredient="Champiñones" onclick="addIngredient(this)">🍄 Champiñones</div>
+            <div class="ingredient" data-ingredient="Pimientos" onclick="addIngredient(this)">🌶️ Pimientos</div>
+            <div class="ingredient" data-ingredient="Cebolla" onclick="addIngredient(this)">🧅 Cebolla</div>
+            <div class="ingredient" data-ingredient="Olivas" onclick="addIngredient(this)">🫒 Olivas</div>
+        </div>
+        <button id="reset" onclick="resetPizza()">Reiniciar Pizza</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
