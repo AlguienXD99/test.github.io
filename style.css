@@ -2,38 +2,53 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
 }
 
-#pizzaBase {
+#pizzaContainer {
     position: relative;
-    width: 200px; /* Ajusta el tamaño de la base de la pizza */
-    height: 200px; /* Ajusta el tamaño de la base de la pizza */
+    margin-top: 50px; /* Ajuste de la posición de la pizza */
 }
 
-#pizza {
-    width: 100%;
-    height: 100%;
-    background-color: #F2C94C; /* Color piel */
-    border-radius: 50%; /* Hace que la pizza sea un círculo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#pizzaBase {
+    width: 200px; /* Diámetro de la pizza */
+    height: 200px;
+    background-color: #ffcc99; /* Color de la masa de pizza */
+    border-radius: 50%; /* Hacerlo circular */
+    position: relative;
 }
 
 #toppings {
-    position: relative;
-    width: 200px; /* Debe ser igual al tamaño de la pizza */
-    height: 200px; /* Debe ser igual al tamaño de la pizza */
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .topping {
     position: absolute;
-    width: 30px; /* Ajusta el tamaño de los ingredientes */
-    height: 30px; /* Ajusta el tamaño de los ingredientes */
+    color: #fff;
+    font-size: 16px;
+    pointer-events: none; /* Para que no se pueda interactuar con los ingredientes */
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #currentOrder {
-    margin: 20px 0;
+    margin-top: 20px;
+    font-weight: bold;
 }
+
+#score {
+    margin-top: 20px;
+}
+
