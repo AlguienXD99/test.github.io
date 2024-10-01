@@ -1,20 +1,51 @@
 let score = 0;
 let currentOrder = {};
 
+function startGame() {
+    // Generar un pedido aleatorio
+    const ingredients = ["Queso", "Pepperoni", "Champiñones", "Pimientos", "Cebolla", "Olivas", "Salsa de Tomate"];
+    const randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length)];
+    const quantity = Math.floor(Math.random() * 3) + 1; // Cantidad entre 1 y 3
+    currentOrder = { ingredient: randomIngredient, quantity: quantity };
+    document.getElementById("currentOrder").innerText = `Pedido: ${quantity} ${randomIngredient}(s)`;
+}
+
 function addIngredient(ingredientElement) {
     const ingredientName = ingredientElement.getAttribute('data-ingredient');
-    const topping = document.createElement('div');
-    topping.textContent = ingredientName;
+    const topping = document.createElement('img');
     topping.className = 'topping';
-    topping.style.position = 'absolute'; // Posición absoluta para el ingrediente
-    topping.style.color = 'white'; // Cambia el color del texto a blanco para mejor visibilidad
-    topping.style.fontSize = '14px';
+    topping.setAttribute('data-ingredient', ingredientName); // Mantener el nombre del ingrediente
+
+    // Definir la imagen según el ingrediente
+    switch (ingredientName) {
+        case "Queso":
+            topping.src = "queso.png";
+            break;
+        case "Pepperoni":
+            topping.src = "pepperoni.png";
+            break;
+        case "Champiñones":
+            topping.src = "champiñones.png";
+            break;
+        case "Pimientos":
+            topping.src = "pimientos.png";
+            break;
+        case "Cebolla":
+            topping.src = "cebolla.png";
+            break;
+        case "Olivas":
+            topping.src = "olivas.png";
+            break;
+        case "Salsa de Tomate":
+            topping.src = "salsa_tomate.png";
+            break;
+    }
 
     // Calcular una posición aleatoria dentro de la pizza
     const pizzaBase = document.getElementById('pizzaBase');
     const pizzaSize = pizzaBase.offsetWidth; // Tamaño de la pizza
-    const maxX = pizzaSize - 50; // 50 es el ancho aproximado de los ingredientes
-    const maxY = pizzaSize - 20; // 20 es la altura aproximada de los ingredientes
+    const maxX = pizzaSize - 30; // 30 es el ancho aproximado de los ingredientes
+    const maxY = pizzaSize - 30; // 30 es la altura aproximada de los ingredientes
 
     // Posiciones aleatorias dentro de la pizza
     const randomX = Math.floor(Math.random() * maxX);
@@ -26,42 +57,24 @@ function addIngredient(ingredientElement) {
     document.getElementById('toppings').appendChild(topping);
 }
 
-function startGame() {
-    const ingredients = ["Queso", "Pepperoni", "Champiñones", "Pimientos", "Cebolla", "Olivas"];
-    const randomIngredients = [];
-    const numberOfIngredients = Math.floor(Math.random() * 3) + 2; // Entre 2 y 4 ingredientes
-
-    for (let i = 0; i < numberOfIngredients; i++) {
-        const randomIndex = Math.floor(Math.random() * ingredients.length);
-        randomIngredients.push(ingredients[randomIndex]);
-    }
-
-    currentOrder = {
-        ingredients: randomIngredients,
-        id: Math.random().toString(36).substr(2, 9) // Generar un ID único
-    };
-
-    document.getElementById('currentOrder').textContent = `Pedido: ${currentOrder.ingredients.join(', ')}`;
-}
-
 function submitPizza() {
-    const toppings = Array.from(document.getElementsByClassName('topping')).map(t => t.textContent.trim());
-    
-    if (toppings.length === currentOrder.ingredients.length && toppings.every(item => currentOrder.ingredients.includes(item))) {
-        score++;
-        alert('¡Pizza entregada correctamente! +1 punto');
+    const currentToppings = document.querySelectorAll('.topping');
+    const toppingCounts = {};
+
+    currentToppings.forEach(topping => {
+        const ingredient = topping.getAttribute('data-ingredient');
+        toppingCounts[ingredient] = (toppingCounts[ingredient] || 0) + 1;
+    });
+
+    if (toppingCounts[currentOrder.ingredient] === currentOrder.quantity) {
+        score += 1;
+        alert("¡Pedido correcto!");
     } else {
-        score--;
-        alert('Pizza incorrecta. -1 punto');
+        score -= 1;
+        alert("Pedido incorrecto.");
     }
 
-    document.getElementById('score').textContent = `Puntos: ${score}`;
-    resetPizza();
+    document.getElementById("score").innerText = `Puntos: ${score}`;
+    document.getElementById("toppings").innerHTML = ''; // Reiniciar la pizza
+    document.getElementById("currentOrder").innerText = ''; // Reiniciar pedido
 }
-
-function resetPizza() {
-    const toppings = document.getElementById('toppings');
-    toppings.innerHTML = ''; // Limpiar los ingredientes
-    document.getElementById('currentOrder').textContent = ''; // Limpiar el pedido
-}
-
