@@ -12,34 +12,9 @@ function startGame() {
 
 function addIngredient(ingredientElement) {
     const ingredientName = ingredientElement.getAttribute('data-ingredient');
-    const topping = document.createElement('img');
+    const topping = document.createElement('div');
     topping.className = 'topping';
-    topping.setAttribute('data-ingredient', ingredientName); // Mantener el nombre del ingrediente
-
-    // Definir la imagen según el ingrediente
-    switch (ingredientName) {
-        case "Queso":
-            topping.src = "queso.png";
-            break;
-        case "Pepperoni":
-            topping.src = "pepperoni.png";
-            break;
-        case "Champiñones":
-            topping.src = "champiñones.png";
-            break;
-        case "Pimientos":
-            topping.src = "pimientos.png";
-            break;
-        case "Cebolla":
-            topping.src = "cebolla.png";
-            break;
-        case "Olivas":
-            topping.src = "olivas.png";
-            break;
-        case "Salsa de Tomate":
-            topping.src = "salsa_tomate.png";
-            break;
-    }
+    topping.innerText = ingredientName;
 
     // Calcular una posición aleatoria dentro de la pizza
     const pizzaBase = document.getElementById('pizzaBase');
@@ -62,7 +37,7 @@ function submitPizza() {
     const toppingCounts = {};
 
     currentToppings.forEach(topping => {
-        const ingredient = topping.getAttribute('data-ingredient');
+        const ingredient = topping.innerText;
         toppingCounts[ingredient] = (toppingCounts[ingredient] || 0) + 1;
     });
 
