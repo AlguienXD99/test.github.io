@@ -6,7 +6,23 @@ function addIngredient(ingredientElement) {
     const topping = document.createElement('div');
     topping.textContent = ingredientName;
     topping.className = 'topping';
-    topping.style.margin = '5px'; // Espaciado entre ingredientes
+    topping.style.position = 'absolute'; // Posición absoluta para el ingrediente
+    topping.style.color = 'white'; // Cambia el color del texto a blanco para mejor visibilidad
+    topping.style.fontSize = '14px';
+
+    // Calcular una posición aleatoria dentro de la pizza
+    const pizzaBase = document.getElementById('pizzaBase');
+    const pizzaSize = pizzaBase.offsetWidth; // Tamaño de la pizza
+    const maxX = pizzaSize - 50; // 50 es el ancho aproximado de los ingredientes
+    const maxY = pizzaSize - 20; // 20 es la altura aproximada de los ingredientes
+
+    // Posiciones aleatorias dentro de la pizza
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    topping.style.left = randomX + 'px';
+    topping.style.top = randomY + 'px';
+
     document.getElementById('toppings').appendChild(topping);
 }
 
