@@ -6,14 +6,12 @@ function addIngredient(ingredientElement) {
     const topping = document.createElement('div');
     topping.textContent = ingredientName;
     topping.className = 'topping';
-    topping.style.backgroundColor = ingredientElement.style.backgroundColor;
-    topping.style.left = Math.random() * 160 + 'px'; // Posición aleatoria
-    topping.style.top = Math.random() * 160 + 'px'; // Posición aleatoria
+    topping.style.margin = '5px'; // Espaciado entre ingredientes
     document.getElementById('toppings').appendChild(topping);
 }
 
-function createOrder() {
-    const ingredients = ["queso", "pepperoni", "champiñones", "pimientos", "cebolla", "olivas"];
+function startGame() {
+    const ingredients = ["Queso", "Pepperoni", "Champiñones", "Pimientos", "Cebolla", "Olivas"];
     const randomIngredients = [];
     const numberOfIngredients = Math.floor(Math.random() * 3) + 2; // Entre 2 y 4 ingredientes
 
@@ -50,3 +48,4 @@ function resetPizza() {
     toppings.innerHTML = ''; // Limpiar los ingredientes
     document.getElementById('currentOrder').textContent = ''; // Limpiar el pedido
 }
+
