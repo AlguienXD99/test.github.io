@@ -10,19 +10,19 @@
     <div class="container">
         <h1>¡Haz tu propia pizza!</h1>
         <div id="pizza" class="pizza">
-            <img src="https://via.placeholder.com/200x200.png?text=Pizza" alt="Pizza" id="pizzaBase">
+            <div id="pizzaBase" class="pizza-square">Pizza</div>
             <div id="toppings" class="toppings"></div>
         </div>
         <div class="ingredients">
             <h2>Ingredientes</h2>
-            <div class="ingredient" data-ingredient="queso" style="background-color: #f8e29b;" onclick="addIngredient(this)">🧀</div>
-            <div class="ingredient" data-ingredient="pepperoni" style="background-color: #d73d3e;" onclick="addIngredient(this)">🍕</div>
-            <div class="ingredient" data-ingredient="champiñones" style="background-color: #c2a6a1;" onclick="addIngredient(this)">🍄</div>
-            <div class="ingredient" data-ingredient="pimientos" style="background-color: #a4de7b;" onclick="addIngredient(this)">🌶️</div>
-            <div class="ingredient" data-ingredient="cebolla" style="background-color: #f7c8c4;" onclick="addIngredient(this)">🧅</div>
-            <div class="ingredient" data-ingredient="olivas" style="background-color: #5b8a2c;" onclick="addIngredient(this)">🫒</div>
+            <div class="ingredient" data-ingredient="Queso" onclick="addIngredient(this)">🧀 Queso</div>
+            <div class="ingredient" data-ingredient="Pepperoni" onclick="addIngredient(this)">🍕 Pepperoni</div>
+            <div class="ingredient" data-ingredient="Champiñones" onclick="addIngredient(this)">🍄 Champiñones</div>
+            <div class="ingredient" data-ingredient="Pimientos" onclick="addIngredient(this)">🌶️ Pimientos</div>
+            <div class="ingredient" data-ingredient="Cebolla" onclick="addIngredient(this)">🧅 Cebolla</div>
+            <div class="ingredient" data-ingredient="Olivas" onclick="addIngredient(this)">🫒 Olivas</div>
         </div>
-        <button id="order" onclick="createOrder()">Crear Pedido</button>
+        <button id="start" onclick="startGame()">Empezar el Juego</button>
         <button id="submit" onclick="submitPizza()">Entregar Pizza</button>
         <div id="score">Puntos: 0</div>
         <div id="currentOrder" class="currentOrder"></div>
