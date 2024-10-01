@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Hacer Pizzas</title>
     <link rel="stylesheet" href="style.css">
+    <title>Pizzahub</title>
 </head>
 <body>
-    <div class="container">
-        <h1>¡Haz tu propia pizza!</h1>
-        <div id="pizza" class="pizza">
-            <div id="pizzaBase" class="pizza-square">Pizza</div>
-            <div id="toppings" class="toppings"></div>
-        </div>
-        <div class="ingredients">
-            <h2>Ingredientes</h2>
-            <div class="ingredient" data-ingredient="Queso" onclick="addIngredient(this)">🧀 Queso</div>
-            <div class="ingredient" data-ingredient="Pepperoni" onclick="addIngredient(this)">🍕 Pepperoni</div>
-            <div class="ingredient" data-ingredient="Champiñones" onclick="addIngredient(this)">🍄 Champiñones</div>
-            <div class="ingredient" data-ingredient="Pimientos" onclick="addIngredient(this)">🌶️ Pimientos</div>
-            <div class="ingredient" data-ingredient="Cebolla" onclick="addIngredient(this)">🧅 Cebolla</div>
-            <div class="ingredient" data-ingredient="Olivas" onclick="addIngredient(this)">🫒 Olivas</div>
-        </div>
-        <button id="start" onclick="startGame()">Recibir pedido</button>
-        <button id="submit" onclick="submitPizza()">Entregar Pizza</button>
-        <div id="score">Puntos: 0</div>
-        <div id="currentOrder" class="currentOrder"></div>
-        <button id="reset" onclick="resetPizza()">Reiniciar Pizza</button>
+    <h1>Pizzahub</h1>
+    <div id="pizzaBase">
+        <img src="pizza_base.png" alt="Pizza Base" id="baseImage">
     </div>
+    <div id="toppings"></div>
+    <div id="currentOrder"></div>
+    <div id="score">Puntos: 0</div>
+    <div>
+        <button style="background-color: #ffcc00;" data-ingredient="Queso" onclick="addIngredient(this)">🧀 Agregar Queso</button>
+        <button style="background-color: #ff5733;" data-ingredient="Pepperoni" onclick="addIngredient(this)">🍕 Agregar Pepperoni</button>
+        <button style="background-color: #33ff57;" data-ingredient="Champiñones" onclick="addIngredient(this)">🍄 Agregar Champiñones</button>
+        <button style="background-color: #3399ff;" data-ingredient="Pimientos" onclick="addIngredient(this)">🌶️ Agregar Pimientos</button>
+        <button style="background-color: #ff33a8;" data-ingredient="Cebolla" onclick="addIngredient(this)">🧅 Agregar Cebolla</button>
+        <button style="background-color: #9933ff;" data-ingredient="Olivas" onclick="addIngredient(this)">🫒 Agregar Olivas</button>
+        <button style="background-color: #ff6666;" data-ingredient="Salsa de Tomate" onclick="addIngredient(this)">🍅 Agregar Salsa de Tomate</button>
+    </div>
+    <button onclick="submitPizza()">Entregar Pizza</button>
+    <button id="start" onclick="startGame()">Recibir Pedido</button>
     <script src="script.js"></script>
 </body>
 </html>
