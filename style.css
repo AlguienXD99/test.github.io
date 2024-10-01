@@ -17,8 +17,13 @@ body {
     margin: 20px;
 }
 
-#pizzaBase {
+.pizza-square {
     width: 200px;
+    height: 200px;
+    background-color: #ccc; /* Color gris para la pizza */
+    line-height: 200px; /* Centrar el texto verticalmente */
+    text-align: center; /* Centrar el texto horizontalmente */
+    font-size: 24px;
 }
 
 .toppings {
@@ -26,16 +31,6 @@ body {
     top: 0;
     left: 0;
     width: 200px;
-}
-
-.topping {
-    position: absolute;
-    border-radius: 50%;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
 }
 
 .ingredient {
@@ -63,4 +58,3 @@ button {
     font-weight: bold;
     color: #333;
 }
-
