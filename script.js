@@ -19,12 +19,15 @@ function addIngredient(ingredientElement) {
     // Calcular una posición aleatoria dentro de la pizza
     const pizzaBase = document.getElementById('pizzaBase');
     const pizzaSize = pizzaBase.offsetWidth; // Tamaño de la pizza
-    const maxX = pizzaSize - 30; // 30 es el ancho aproximado de los ingredientes
-    const maxY = pizzaSize - 30; // 30 es la altura aproximada de los ingredientes
+    const radius = pizzaSize / 2 - 15; // Radio de la pizza, restando un margen para los ingredientes
 
-    // Posiciones aleatorias dentro de la pizza
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+    // Generar un ángulo aleatorio y una distancia aleatoria dentro del radio
+    const angle = Math.random() * 2 * Math.PI; // Ángulo aleatorio en radianes
+    const distance = Math.random() * radius; // Distancia aleatoria dentro del radio
+
+    // Calcular la posición x e y en base a la distancia y el ángulo
+    const randomX = (pizzaSize / 2) + (Math.cos(angle) * distance) - 15; // Centrar la pizza
+    const randomY = (pizzaSize / 2) + (Math.sin(angle) * distance) - 15; // Centrar la pizza
 
     topping.style.left = randomX + 'px';
     topping.style.top = randomY + 'px';
